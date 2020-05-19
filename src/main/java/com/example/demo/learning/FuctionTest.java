@@ -2,6 +2,7 @@ package com.example.demo.learning;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class FuctionTest {
 
@@ -21,8 +22,19 @@ public class FuctionTest {
         //加减混合运算
         System.out.println(fuctionTest.compute4(2,3,(value1,value2)->value1+value2,value->value*value));
 
+        System.out.println(str2Num("123", value1 -> Integer.valueOf(value1)));
 
+        System.out.println(strSplice("abc","fgr",(value1,value2)->value1+value2));
 
+        Person person=new Person("zhangsan",6);
+
+        Person person1 = refresh(person, p -> {
+            p.setAge(9999);
+            p.setName("lisi");
+            return p;
+        });
+
+        System.out.println(person1.toString());
 
 
     }
@@ -49,6 +61,18 @@ public class FuctionTest {
 
     public int compute4(int a,int b,BiFunction<Integer,Integer,Integer> biFunction,Function<Integer,Integer> fuction){
         return biFunction.andThen(fuction).apply(a,b);
+    }
+
+    public static int str2Num(String str, Function<String, Integer> function) {
+        return  function.apply(str);
+    }
+
+    public static String strSplice(String a,String b,BiFunction<String,String,String> biFunction){
+        return biFunction.apply(a,b);
+    }
+
+    public static Person refresh(Person person, UnaryOperator<Person> operator) {
+        return operator.apply(person);
     }
 
 }

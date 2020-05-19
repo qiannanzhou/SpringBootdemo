@@ -30,7 +30,7 @@ public class BinarySearch {
 
     }
 
-    public int[] arraySub(int a[],int x,int y){
+    public int[] arraySub(int[] a,int x,int y){
         int[] array= new int[y-x];
 
         for (int i=x;i<array.length;i++){

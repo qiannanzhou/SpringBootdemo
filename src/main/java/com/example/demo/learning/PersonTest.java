@@ -23,6 +23,10 @@ public class PersonTest {
        List<Person> person=personTest.getPersonByage(20,personList);
        person.forEach(item->System.out.println(item.getName()));
 
+       List<Person> people1=personTest.getPersonByPara(20,personList,(age,personList1)->{return personList1.stream().filter(person4 -> person4.getAge()>age).collect(Collectors.toList());} );
+
+        people1.forEach(item->System.out.println(item.getAge()));
+
 
 
 
@@ -54,6 +58,10 @@ public class PersonTest {
             return personvalue.stream().filter(person -> person.getAge()>agevalue).collect(Collectors.toList());
         };
         return biFunction.apply(age,personList);
+    }
+
+    public List<Person> getPersonByPara (int a,List<Person> personList,BiFunction<Integer,List<Person>,List<Person>> biFunction){
+        return biFunction.apply(a,personList);
     }
 
 
