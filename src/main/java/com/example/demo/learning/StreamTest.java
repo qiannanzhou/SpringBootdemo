@@ -38,7 +38,7 @@ public class StreamTest {
 //        System.out.println("----------------------");
 //        System.out.println("stram转换成list");
 //
-        Stream<String> stringStream=Stream.of("hello","world","123");
+ //       Stream<String> stringStream=Stream.of("hello","world","123");
 //        String[] strings=stringStream.toArray(length->new String[length]);
 //
 //        Arrays.asList(strings).forEach(System.out::println);
@@ -50,7 +50,7 @@ public class StreamTest {
 //        List<String> list3=stringStream.collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
 //
 //        System.out.println("----------------------");
-//        System.out.println("stram转换成不同类型的list");
+//        System.out.println("stram转换成不同类型的list练习终止操作collect");
 //
 //        List<String> list4=stringStream.collect(Collectors.toCollection(ArrayList::new));
 //        list4.forEach(System.out::println);
@@ -65,24 +65,27 @@ public class StreamTest {
 //        System.out.println("s:"+s);
 
         System.out.println("----------------------");
+        System.out.println("-------练习flatmap,map------------");
 
 
-        List<String> list6=Arrays.asList("hello","world","zhouqiannan");
-        List<String> list7= list6.stream().map((item)->item.toUpperCase()).collect(Collectors.toList());
-        list7.forEach(System.out::println);
-
-        List<Integer> list8=Arrays.asList(1,2,3,4,5);
+//        List<String> list6=Arrays.asList("hello","world","zhouqiannan");
+//        List<String> list7= list6.stream().map((item)->item.toUpperCase()).collect(Collectors.toList());
+//        list7.forEach(System.out::println);
+//
+//        List<Integer> list8=Arrays.asList(1,2,3,4,5);
 //        list8.stream().map(item->item*item).collect(Collectors.toList()).forEach(System.out::println);
 //        list8.stream().map(item->item*item).forEach(System.out::println);
 //
 //        System.out.println(list8.stream().reduce(Integer::sum).orElse(0));
 
-        /*List<List<String>> list9 = new ArrayList<>();
-        list9.add(list6);
-        list9.add(list7);
-        //flatMap把几个LIST中的数据打平
-        list9.stream().flatMap(Collection::stream).map(String::toLowerCase).forEach(System.out::println);*/
+//        List<List<String>> list9 = new ArrayList<>();
+//        list9.add(list6);
+//        list9.add(list7);
+//        //flatMap把几个LIST中的数据打平
+//        list9.stream().flatMap(Collection::stream).map(String::toLowerCase).forEach(System.out::println);
 
+        System.out.println("----------------------");
+        System.out.println("-------练习iterate等操作------------");
 
        int y = Stream.iterate(1,item->item+2).limit(6).filter(i->i>2).map(i1->i1*2).skip(2).limit(2).reduce(Integer::sum).get();
        System.out.println("yyyyyyy"+y);
