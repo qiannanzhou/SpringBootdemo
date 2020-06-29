@@ -30,11 +30,20 @@ public class Student {
         this.score = score;
     }
 
-    public  static int compareByname(Student student1,Student student2){
+    public  static int compareStudentByname(Student student1,Student student2){
         return student1.getName().compareTo(student2.getName());
     }
 
-    public   static int compareByscore(Student student1,Student student2){
+    public   static int compareStudentByscore(Student student1,Student student2){
         return student1.getScore()-student2.getScore();
     }
+
+    public int compareByname(Student student){
+        return this.name.compareToIgnoreCase(student.getName());
+    }
+
+    public int compareByscore(Student student){
+        return this.score-student.score;
+    }
+
 }
