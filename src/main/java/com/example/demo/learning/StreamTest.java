@@ -2,6 +2,7 @@ package com.example.demo.learning;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -47,9 +48,19 @@ public class StreamTest {
 
         List<String> list1=stringStream.collect(Collectors.toList());
 
-        List<String> list2=stringStream.collect(()->new ArrayList<String>(),(thelist,item)->thelist.add(item),(list1,lis2)->list1.addAll(list2))
+        List<String> list2=stringStream.collect(()->new ArrayList<String>(),(thelist,item)->thelist.add(item),(l1,l2)->l1.addAll(l2));
 //list2等同于
         List<String> list3=stringStream.collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+
+        System.out.println("----------------------");
+        System.out.println("stram转换成不同类型的list");
+
+        List<String> list4=stringStream.collect(Collectors.toCollection(ArrayList::new));
+        list4.forEach(System.out::println);
+
+        List<String> list5 =stringStream.collect(Collectors.toCollection(LinkedList::new));
+
+
 
 
 
