@@ -11,6 +11,8 @@ import java.util.stream.Stream;
  */
 public class StreamTest {
     public static void main(String[] args) {
+        System.out.println("------创建stream 对象的三种方式------------");
+
         //创建stream 对象的三种方式
 //        System.out.println("第一种方式");
 //        Stream stream=Stream.of("hello","world");
@@ -36,7 +38,7 @@ public class StreamTest {
 //        System.out.println(integerList.stream().map(item->item*2).reduce(0,Integer::sum));
 //
 //        System.out.println("----------------------");
-//        System.out.println("stram转换成list");
+        System.out.println("------------stram转换成list-----------");
 //
  //       Stream<String> stringStream=Stream.of("hello","world","123");
 //        String[] strings=stringStream.toArray(length->new String[length]);
@@ -50,7 +52,7 @@ public class StreamTest {
 //        List<String> list3=stringStream.collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
 //
 //        System.out.println("----------------------");
-//        System.out.println("stram转换成不同类型的list练习终止操作collect");
+        System.out.println("-----------stram转换成不同类型的list练习终止操作collect----------");
 //
 //        List<String> list4=stringStream.collect(Collectors.toCollection(ArrayList::new));
 //        list4.forEach(System.out::println);
@@ -85,10 +87,42 @@ public class StreamTest {
 //        list9.stream().flatMap(Collection::stream).map(String::toLowerCase).forEach(System.out::println);
 
         System.out.println("----------------------");
-        System.out.println("-------练习iterate等操作------------");
+        System.out.println("-------练习iterate等操作（是将种子不断迭代，）------------");
 
-       int y = Stream.iterate(1,item->item+2).limit(6).filter(i->i>2).map(i1->i1*2).skip(2).limit(2).reduce(Integer::sum).get();
-       System.out.println("yyyyyyy"+y);
+//        Stream stream=Stream.iterate(1,item->item+2).limit(6);
+//
+//
+//       int y = Stream.iterate(1,item->item+2).limit(6).filter(i->i>2).map(i1->i1*2).skip(2).limit(2).reduce(Integer::sum).get();
+//       //使用maptoInt方法减少装箱拆箱，提升性能
+//       int y1 = Stream.iterate(1,item->item+2).limit(6).filter(i->i>2).mapToInt(i1->i1*2).skip(2).limit(2).reduce(Integer::sum).getAsInt();
+//       // 如果既想求和又想求最大最小值，那用summaryStatistics（终止函数）
+//
+//        System.out.println("-------练习summaryStatistics操作（终止函数）------------");
+//
+//        IntSummaryStatistics intSummaryStatistics=Stream.iterate(1,item->item+2).limit(6).filter(i->i>2).mapToInt(i1->i1*2).skip(2).limit(2).summaryStatistics();
+//        System.out.println("最大值："+intSummaryStatistics.getMax());
+//        System.out.println("最小值："+intSummaryStatistics.getMin());
+//        System.out.println("总和"+intSummaryStatistics.getSum());
+
+ //       System.out.println("yyyyyyy"+y);
+
+        //流的每次中间操作都会产生一个新的流，并且一个流只能使用一次，不然会报错，所以下面例子第三个打印一定会报错，因此推荐使用链式写法
+//        System.out.println(stream);
+//        System.out.println(stream.skip(2));
+//        System.out.println(stream.limit(1));
+        System.out.println("----------------------");
+
+        List<String> list10=Arrays.asList("hello","world","helloworld");
+        list10.stream().map(item->item.substring(0,1).toUpperCase()+item.substring(1)).forEach(System.out::println);
+
+
+
+
+
+
+
+
+
 
 
 
