@@ -113,8 +113,29 @@ public class StreamTest {
         System.out.println("----------------------");
 
         List<String> list10=Arrays.asList("hello","world","helloworld");
-        list10.stream().map(item->item.substring(0,1).toUpperCase()+item.substring(1)).forEach(System.out::println);
+       // list10.stream().map(item->item.substring(0,1).toUpperCase()+item.substring(1)).forEach(System.out::println);
 
+        System.out.println("----------------------");
+        System.out.println("-------练习流的短路特性即如果找到一个元素符合条件，就不在执行下一个操作-------------");
+
+
+        //打印出长度为五的第一个字符串的长度
+      //  list10.stream().map(item->item.length()).filter(i->i==5).findFirst().ifPresent(System.out::println);
+
+
+        //打印出长度为五的第一个字符串的长度 及该单词 是短路运算，如果找到第一个元素后，后面的操作不在执行
+        list10.stream().map(item->{
+            int length =item.length();
+            System.out.println(item);
+            return length;
+        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
+
+        List<String> list11=Arrays.asList("hello1","world","helloworld");
+        list11.stream().map(item->{
+            int length =item.length();
+            System.out.println(item);
+            return length;
+        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
 
 
 
