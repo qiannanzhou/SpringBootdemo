@@ -67,7 +67,7 @@ public class StreamTest {
 //        System.out.println("s:"+s);
 
         System.out.println("----------------------");
-        System.out.println("-------练习flatmap,map------------");
+        System.out.println("-------练习flatmap(把几个LIST中的数据打平),map------------");
 
 
 //        List<String> list6=Arrays.asList("hello","world","zhouqiannan");
@@ -124,18 +124,22 @@ public class StreamTest {
 
 
         //打印出长度为五的第一个字符串的长度 及该单词 是短路运算，如果找到第一个元素后，后面的操作不在执行
-        list10.stream().map(item->{
-            int length =item.length();
-            System.out.println(item);
-            return length;
-        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
+//        list10.stream().map(item->{
+//            int length =item.length();
+//            System.out.println(item);
+//            return length;
+//        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
+//
+//        List<String> list11=Arrays.asList("hello1","world","helloworld");
+//        list11.stream().map(item->{
+//            int length =item.length();
+//            System.out.println(item);
+//            return length;
+//        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
 
-        List<String> list11=Arrays.asList("hello1","world","helloworld");
-        list11.stream().map(item->{
-            int length =item.length();
-            System.out.println(item);
-            return length;
-        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
+
+        List<String> list12=Arrays.asList("hello world","welcome world","hello welcome");
+        list12.stream().map(item->item.split(" ")).forEach(item->System.out.println(item));
 
 
 
