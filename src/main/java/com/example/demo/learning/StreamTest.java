@@ -1,5 +1,7 @@
 package com.example.demo.learning;
 
+import com.example.demo.Dao.Student;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -150,32 +152,60 @@ public class StreamTest {
 
         System.out.println("----------------------");
 
+        System.out.println("-----------练习flatmap---------");
+
+
         List<String> listhi=Arrays.asList("hello","hi","你好");
         List<String> listPerson=Arrays.asList("zhangsan","lisi","wangwu","zhaoliu");
 
-//        for (int i = 0; i < listhi.size(); i++) {
-//            StringBuilder stringBuilder=new StringBuilder();
-//            stringBuilder.append(listhi.get(i));
-//            for (int j=0;j<listPerson.size();j++){
-//                stringBuilder.append(listPerson.get(j));
-//
-//            }
-//
-//            System.out.println(stringBuilder.toString());
-//
-//        }
-
-
+        for (int i = 0; i < listhi.size(); i++) {
             for (int j=0;j<listPerson.size();j++){
-                StringBuilder stringBuilder=new StringBuilder();
-                stringBuilder.append(listhi.get(j%listhi.size()));
-                stringBuilder.append(listPerson.get(j));
-                System.out.println(stringBuilder.toString());
+                System.out.println(listhi.get(i)+" "+listPerson.get(j));
 
             }
 
 
         }
+       listhi.stream().flatMap(item->listPerson.stream().map(item2->item+" "+item2)).forEach(System.out::println);
+
+        System.out.println("----------------------");
+
+        System.out.println("-----------练习grouping by 及partion by(分区是分组的一种，只能分成两组)---------");
+
+        Student student1=new Student("zhangsan",20);
+        Student student2=new Student("lisi",30);
+
+        Student student3=new Student("zhangsan",80);
+        Student student4=new Student("wangwu",30);
+
+        List<Student> students=Arrays.asList(student1,student2,student3,student4);
+
+       Map<String,List<Student>> map =students.stream().collect(Collectors.groupingBy(item->item.getName()));
+       //根据name分组，并 返回分组后的数目
+       Map<String,Long> map1=students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.counting()));
+
+        //根据name分组，并 返回分组后的平均数
+      Map<String,Double> map2= students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.averagingDouble(Student::getScore)));
+
+      //  partion by(分区是分组的一种，只能分成两组) 返回Boolean
+
+      Map<Boolean,Long> map3=  students.stream().collect(Collectors.partitioningBy(item->item.getScore()>80,Collectors.counting()));
+
+      System.out.println("----------------------");
+
+
+
+
+
+        System.out.println("----------------------");
+
+
+
+
+
+
+
+    }
 
 
 
