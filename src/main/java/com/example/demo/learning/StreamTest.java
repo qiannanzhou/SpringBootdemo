@@ -79,12 +79,22 @@ public class StreamTest {
 //        list8.stream().map(item->item*item).forEach(System.out::println);
 //
 //        System.out.println(list8.stream().reduce(Integer::sum).orElse(0));
-
+//
 //        List<List<String>> list9 = new ArrayList<>();
 //        list9.add(list6);
 //        list9.add(list7);
 //        //flatMap把几个LIST中的数据打平
 //        list9.stream().flatMap(Collection::stream).map(String::toLowerCase).forEach(System.out::println);
+
+//
+//        List<String> list12=Arrays.asList("hello world","welcome world","hello welcome");
+//        //下面为错误写法split返回的是数组，因此map后为stream<String[]>
+//        // list12.stream().map(item->item.split(" ")).forEach(item->System.out.println(item));
+//
+//        list12.stream().map(item->item.split(" ")).forEach(item->Arrays.asList(item).forEach(System.out::println));
+//        System.out.println("----------------------");
+//
+//        list12.stream().map(item->item.split(" ")).flatMap(Arrays::stream).distinct().forEach(System.out::println);
 
         System.out.println("----------------------");
         System.out.println("-------练习iterate等操作（是将种子不断迭代，）------------");
@@ -138,12 +148,34 @@ public class StreamTest {
 //        }).filter(i->i==5).findFirst().ifPresent(System.out::println);
 
 
-        List<String> list12=Arrays.asList("hello world","welcome world","hello welcome");
-        list12.stream().map(item->item.split(" ")).forEach(item->System.out.println(item));
+        System.out.println("----------------------");
+
+        List<String> listhi=Arrays.asList("hello","hi","你好");
+        List<String> listPerson=Arrays.asList("zhangsan","lisi","wangwu","zhaoliu");
+
+//        for (int i = 0; i < listhi.size(); i++) {
+//            StringBuilder stringBuilder=new StringBuilder();
+//            stringBuilder.append(listhi.get(i));
+//            for (int j=0;j<listPerson.size();j++){
+//                stringBuilder.append(listPerson.get(j));
+//
+//            }
+//
+//            System.out.println(stringBuilder.toString());
+//
+//        }
 
 
+            for (int j=0;j<listPerson.size();j++){
+                StringBuilder stringBuilder=new StringBuilder();
+                stringBuilder.append(listhi.get(j%listhi.size()));
+                stringBuilder.append(listPerson.get(j));
+                System.out.println(stringBuilder.toString());
+
+            }
 
 
+        }
 
 
 
@@ -168,4 +200,4 @@ public class StreamTest {
 
 
     }
-}
+
