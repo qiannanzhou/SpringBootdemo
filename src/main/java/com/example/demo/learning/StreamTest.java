@@ -37,7 +37,7 @@ public class StreamTest {
 //
 //        List<Integer> integerList=Arrays.asList(1,2,3,4);
 //        System.out.println(integerList.stream().map(item->item*2).reduce(0,(integer, integer2) ->integer+integer2 ));
-//        System.out.println(integerList.stream().map(item->item*2).reduce(0,Integer::sum));
+//       System.out.println(integerList.stream().map(item->item*2).reduce(0,Integer::sum));
 //
 //        System.out.println("----------------------");
         System.out.println("------------stram转换成list-----------");
@@ -192,6 +192,9 @@ public class StreamTest {
       Map<Boolean,Long> map3=  students.stream().collect(Collectors.partitioningBy(item->item.getScore()>80,Collectors.counting()));
 
       System.out.println("----------------------");
+
+      System.out.println("count"+students.stream().collect(Collectors.counting()));
+      System.out.println("count"+students.stream().count());
 
 
 
