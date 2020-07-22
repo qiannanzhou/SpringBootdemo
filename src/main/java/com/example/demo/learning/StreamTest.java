@@ -187,7 +187,7 @@ public class StreamTest {
         //根据name分组，并 返回分组后的平均数
       Map<String,Double> map2= students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.averagingDouble(Student::getScore)));
 
-      //  partion by(分区是分组的一种，只能分成两组) 返回Boolean
+      //  partion by(分区是分组的一种，只能分成两组) key只能返回Boolean
 
       Map<Boolean,Long> map3=  students.stream().collect(Collectors.partitioningBy(item->item.getScore()>80,Collectors.counting()));
 
