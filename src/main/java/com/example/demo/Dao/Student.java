@@ -30,7 +30,15 @@ public class Student {
         this.score = score;
     }
 
-    public  static int compareStudentByname(Student student1,Student student2){
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", score=" + score +
+                '}';
+    }
+
+    public  static int compareStudentByname(Student student1, Student student2){
         return student1.getName().compareTo(student2.getName());
     }
 

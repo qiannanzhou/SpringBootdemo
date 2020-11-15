@@ -198,6 +198,12 @@ public class StreamTest {
 
 
 
+        students.stream().collect(Collectors.minBy(Comparator.comparingInt(Student::getScore))).ifPresent(System.out::println);
+
+        System.out.println(students.stream().collect(Collectors.averagingInt(Student::getScore)));
+
+
+
 
 
         System.out.println("----------------------");
