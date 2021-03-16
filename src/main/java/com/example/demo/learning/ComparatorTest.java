@@ -1,11 +1,13 @@
 package com.example.demo.learning;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.*;
 
 public class ComparatorTest {
 
     public static void main(String[] args) {
-        List<String>  list = Arrays.asList("nihao", "hello", "world", "welcome");
+      //  List<String>  list = Arrays.asList("nihao", "hello", "world", "welcome");
 
       //  Collections.sort(list);
 
@@ -17,8 +19,10 @@ public class ComparatorTest {
    //     list.sort(Comparator.comparingInt(String::length).thenComparing(String.CASE_INSENSITIVE_ORDER));
 
 
-        Collections.sort(list,Comparator.comparingInt(String::length).thenComparing(Comparator.comparing(String::toLowerCase)));
-        System.out.println( list);
+//        Collections.sort(list,Comparator.comparingInt(String::length).thenComparing(Comparator.comparing(String::toLowerCase)));
+//        System.out.println( list);
+
+
 
 
 

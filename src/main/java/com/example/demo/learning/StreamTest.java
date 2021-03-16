@@ -1,10 +1,13 @@
 package com.example.demo.learning;
 
 import com.example.demo.Dao.Student;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import com.alibaba.fastjson.JSONObject;
+
 
 /**
  * @author juebing
@@ -179,19 +182,24 @@ public class StreamTest {
         Student student4=new Student("wangwu",30);
 
         List<Student> students=Arrays.asList(student1,student2,student3,student4);
+//
+//       Map<String,List<Student>> map =students.stream().collect(Collectors.groupingBy(item->item.getName()));
+//       //根据name分组，并 返回分组后的数目
+//       Map<String,Long> map1=students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.counting()));
+//
+//        //根据name分组，并 返回分组后的平均数
+//      Map<String,Double> map2= students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.averagingDouble(Student::getScore)));
+//
+//      //  partion by(分区是分组的一种，只能分成两组) key只能返回Boolean
+//
+//      Map<Boolean,Long> map3=  students.stream().collect(Collectors.partitioningBy(item->item.getScore()>80,Collectors.counting()));
 
-       Map<String,List<Student>> map =students.stream().collect(Collectors.groupingBy(item->item.getName()));
-       //根据name分组，并 返回分组后的数目
-       Map<String,Long> map1=students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.counting()));
 
-        //根据name分组，并 返回分组后的平均数
-      Map<String,Double> map2= students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.averagingDouble(Student::getScore)));
 
-      //  partion by(分区是分组的一种，只能分成两组) key只能返回Boolean
+        Map<String,Integer> map=students.stream().collect(Collectors.groupingBy(Student::getName,Collectors.summingInt(Student::getScore)));
+        System.out.println("求分组后的总分数map----"+JSONObject.toJSON(map));
 
-      Map<Boolean,Long> map3=  students.stream().collect(Collectors.partitioningBy(item->item.getScore()>80,Collectors.counting()));
 
-      System.out.println("----------------------");
 
       System.out.println("count"+students.stream().collect(Collectors.counting()));
       System.out.println("count"+students.stream().count());
