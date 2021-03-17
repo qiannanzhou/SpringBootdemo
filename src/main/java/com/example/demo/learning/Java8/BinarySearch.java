@@ -1,4 +1,4 @@
-package com.example.demo.learning;
+package com.example.demo.learning.Java8;
 
 public class BinarySearch {
 

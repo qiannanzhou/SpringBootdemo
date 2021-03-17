@@ -1,4 +1,4 @@
-package com.example.demo.learning;
+package com.example.demo.learning.Java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;

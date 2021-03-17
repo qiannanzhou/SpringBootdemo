@@ -1,4 +1,4 @@
-package com.example.demo.learning;
+package com.example.demo.learning.Java8;
 
 import com.example.demo.Dao.Student;
 import com.fasterxml.jackson.databind.util.JSONPObject;

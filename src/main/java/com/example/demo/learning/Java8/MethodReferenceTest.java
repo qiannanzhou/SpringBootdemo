@@ -1,10 +1,8 @@
-package com.example.demo.learning;
+package com.example.demo.learning.Java8;
 
 import com.example.demo.Dao.Student;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
