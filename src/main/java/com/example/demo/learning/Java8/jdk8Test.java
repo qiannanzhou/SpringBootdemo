@@ -57,16 +57,18 @@ public class jdk8Test {
 
         //-------------字符串比较
 
-        List<String> list4=Arrays.asList("hello","wo","thank","you");
-        Collections.sort(list4, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        });
-        System.out.println(list4);
+//        List<String> list4=Arrays.asList("hello","wo","thank","you");
+//        Collections.sort(list4, new Comparator<String>() {
+//            @Override
+//            public int compare(String o1, String o2) {
+//                return o1.compareTo(o2);
+//            }
+//        });
+//        System.out.println(list4);
+//
+//        Collections.sort(list4,(o1, o2) -> o1.compareTo(o2));
 
-        Collections.sort(list4,(o1, o2) -> o1.compareTo(o2));
+        System.out.println(Objects.toString(123,"456"));
 
 
 

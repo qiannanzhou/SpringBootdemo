@@ -15,6 +15,10 @@ public class Student implements  Cloneable{
         return name;
     }
 
+    public Student(){
+
+    }
+
     public Student(String name, Integer score) {
         this.name = name;
         this.score = score;
