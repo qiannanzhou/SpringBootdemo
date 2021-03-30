@@ -1,5 +1,8 @@
 package com.example.demo.Dao;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
